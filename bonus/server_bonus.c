@@ -49,7 +49,10 @@ static void	handler_sig(int signum, siginfo_t *info, void *context)
 	if (count == 8)
 	{
 		if (c == '\0')
+		{
 			ft_putchar('\n');
+			kill(client_pid, SIGUSR1); 
+		}
 		else
 			ft_putchar(c);
 		count = 0;

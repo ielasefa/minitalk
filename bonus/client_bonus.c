@@ -19,11 +19,11 @@ int	is_not_digit(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (ft_isdigit(s[i]))
-			return (0);
+		if (!ft_isdigit(s[i]))
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	cheak_input(int ac, char **av)
@@ -87,4 +87,5 @@ int	main(int ac, char **av)
 		i++;
 	}
 	send_msg('\0', pid);
+	return (0);
 }
