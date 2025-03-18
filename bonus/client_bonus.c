@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 int	is_not_digit(char *s)
 {
@@ -64,6 +64,12 @@ void	send_msg(char s, int pid)
 	}
 }
 
+void	handle_sig(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_putstr("Message successfully received✅\n");
+}
+
 int	main(int ac, char **av)
 {
 	int		pid;
@@ -73,6 +79,7 @@ int	main(int ac, char **av)
 	i = 0;
 	cheak_input(ac, av);
 	pid = ft_atoi(av[1], NULL);
+	signal(SIGUSR1, handle_sig);
 	str = av[2];
 	while (str[i])
 	{
