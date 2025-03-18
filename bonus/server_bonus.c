@@ -51,7 +51,7 @@ static void	handler_sig(int signum, siginfo_t *info, void *context)
 		if (c == '\0')
 		{
 			ft_putchar('\n');
-			kill(client_pid, SIGUSR1); 
+			kill(client_pid, SIGUSR1);
 		}
 		else
 			ft_putchar(c);
